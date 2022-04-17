@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //iterator dizinin icine girip elemanlara ulasir
+        const students = ["Ahmet", "Can", "Mustafa","Ayşe","Elif"];
+
+        let birlesik = "";
+
+        for(let student of students){
+            birlesik += student;
+        }
+        console.log(birlesik);
+
+
+        for(let [index, student] of students.entries()){//sabit bir metod students dizinin hem elemani hem index num almak icin kullanilir
+           console.log(`${index+1}.eleman = ${student}`);//0. eleman 1 yapmak icin +1
+        }
+       // for in gibi degil eleman direk giriyor icine for in de index giriyordu
+
+
+        for(let harf of "Ali Gel"){//bunu string dizisi olarak algiliyor a l i  g e l
+            console.log(harf);
+        }
+        
+
+
+
+        
+
+    </script>
+</body>
+</html>

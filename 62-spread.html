@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function topla(s1,s2,s3){
+            console.log(s1,s2,s3);
+            return s1+s2+s3;
+        }
+
+        const sayilar = [14,54,65,23,2356];
+
+        // Klasik yöntem
+        //const sonuc = topla(sayilar[0], sayilar[1], sayilar[2]);
+
+        const sonuc = topla(...sayilar);//topla()nin 3 parametresini alir digerlerini birakir
+        console.log(sonuc);
+
+
+        const dizi = [13,45,67,23,76];
+        const dizi2 = [12,65,88];
+        const sabit = 12;
+
+        const yeniDizi = [78, ...dizi, sabit, ...dizi2];
+       
+        console.log(yeniDizi);
+
+
+
+        // Ram de A2
+        const student = {//referans typelar remde saklanir
+            no: 1234,
+            adi: 'Ali',
+            soyadi: 'Gel',
+            dogumYeri: 'İzmir'
+        };
+
+        // Ramde A3 adresinde
+        const sayi = 5;
+
+        // Ramde A5 adresinde 5 değeri saklıyor.
+        const yeniSayi = sayi;//bu referans tipi degil bundan dolayi 5 atanir
+
+        // Ramde A10 adresinde A2 değerini saklıyor
+        const newStudent = student;//student referans tipidir burada student komle atilmaz adres atilir a2 atanir//bu object lerde gecerli
+        newStudent.adi = "Mehmet";//ayni ortak datayi kullandiklari icin ikisinin de degeri degismis olur
+    
+        // shallow copy
+        const newerStudent = {...student, dogumTarihi:"10.10.1980",no:5432};//bir objenin icinde iki ayni key olmaz haliyle no deyip degistirebilirsin
+        newerStudent.adi = "Veli";//fakat boyle yapinca ...student seklinde digerlerini etkilemiyor
+
+        console.log(student);
+        console.log(newStudent);
+        console.log(newerStudent);
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- some= eger dizinin icind belirledigim kritere biri dahi uyarsa burasi true dondersin -->
+    <!-- every= eger dizinin icind belirledigim kritere biri dahi uymazsa false olur hepsi uymak zorunda  -->
+    <!-- iteratorlar=for, for-in(degisken tamamlayip index donduruyor),for-of(eleman donderiyor),foreach,=bunlar sadece iteration yapiyor yani elemani donderiyro
+        map,filter,reduce,every,some =bu ise donderip islem yapabiliyor-->
+    <script>
+        const koordinatlar = [-101, -9, -32, -43, -20];
+
+        if(koordinatlar.some(item=> item>100)){
+            console.log("En az bir eleman 100 den büyük");
+        }
+        else{
+            console.log("Hiç bir eleman 100 den büyük değil");
+        }
+
+
+        if(koordinatlar.every(item=> item<0)){
+            console.log("Tüm elemanlar negatif");
+        }
+        else{
+            console.log("Tüm elemanlar negatif değil");
+        }
+
+
+    </script>
+</body>
+</html>

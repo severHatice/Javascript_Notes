@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="txtHarf">
+
+    <ul id="liste">
+
+    </ul>
+    <!-- PIPELINE = LAMBDA -->
+<!-- *************************SEARCH FRONTEND****************** -->
+<!-- EGER data backendden gelecekse bu uygulama iyi degil backende baglanir endpointe ve siz sadece siz harf gonderirsiniz backend arama islemini yapar -->
+    
+    <script>
+        const bireyler = ["Mustafa", "Murat", "Ahmet", "mustafa", "Ayşe", "Canan"];
+
+        const filtrele = (harf) => {//input un icine koyabilmek icin bu func yazdik
+            let strBireyler = "";
+            let yeniDizi = bireyler;//yenidizi demeliyiz harfi silince eski veriler tekara gelsin diye//klavyeye her basildiginda bu diziyi alip yenidiziye atiyoruz. eger basmazsa eski haline geliyor tekrar isim listesi olusuyor
+
+            if(harf){//harf bos degilse undefined degilse vs
+                yeniDizi = yeniDizi.filter( 
+                    birey => birey.toLocaleLowerCase().startsWith(harf.toLocaleLowerCase()) //inputa giren tum harfi lowercase yap
+                );//toLocaleLowerCase: mevcut sisteme dwfault degere gore alir
+            }//li ye girmeden once filtreledik(harf)=dolu mu 
+
+            yeniDizi.forEach(birey=> {//bunu foreach da dondurup li icine koyup donduruyor
+                strBireyler+=`<li>${birey}</li>`;//string litteral
+            });
+
+            document.querySelector("#liste").innerHTML=strBireyler;//li nin icine koyulan isimler li olarak ul un icine yerlestiriyor
+        }
+
+        filtrele();//kullanici hic tiklamazsa zaten bu olusturuldu
+
+
+        document.querySelector("#txtHarf").addEventListener('input', (e)=> {//klavyeden inputa herhangi bir sey girerse input un icindeki degeri gonderiyoruz filtrele func nina harf orada doluyor if devreye giriyor ve yeni bir dizi olusuyor sunla baslayan... sonrada gosteriyor
+            console.log(e.target.value);
+            filtrele(e.target.value);
+        });
+
+    </script>
+</body>
+</html>

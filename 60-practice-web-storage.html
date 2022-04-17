@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- javascript advance js3 -25dk -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <!-- bir form uzerinden kullanicinin ismini alip bundan sonraki siteye girislerinde ismi ile merhaba hatice yazan programi yapiniz -->
+    <h2 id="welcome">Merhaba <em>Ali</em> bu siteye <span>1</span>. kez girdiniz.</h2>
+
+    <div class="container mt-5">
+      <div class="input-group mb-3">
+        <input
+          id="txtName"
+          type="text"
+          class="form-control"
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <button class="btn btn-warning" type="button" id="btnEkle">
+          Ekle
+        </button>
+      </div>
+    </div>
+
+    <script>
+         // sayfa her ziyaret edildiginde ziyaretciye kacinci kez girdigini soyleyen  programi yaziniz- localstorage da saklanir bu 
+      let counterVal = localStorage.getItem("counter");
+      counterVal = counterVal ? ++counterVal : 1;
+    //   ++counterVall = once arttiriyor sonra atiyor
+
+      localStorage.setItem("counter", counterVal);
+      document.querySelector("#welcome span").innerText = counterVal;
+
+    
+      let nameVal = localStorage.getItem("name");
+      document.querySelector("#welcome em").innerText = nameVal;
+
+      document.querySelector("#btnEkle").addEventListener("click", ()=>{
+        nameVal = document.querySelector("#txtName").value;
+        localStorage.setItem("name", nameVal);
+      });
+
+    </script>
+  </body>
+</html>

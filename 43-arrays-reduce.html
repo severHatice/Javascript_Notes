@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const koordinatlar = [100, 150, 32, 43, 20];
+
+        const sontoplam = koordinatlar.reduce( (toplam, koord) => {
+            console.log(`toplam=${toplam} koord=${koord}`);
+            return toplam + koord;//suslu parantezi kullaninca return zorunlu geriye deger dondermesi lazim
+            
+        },0 );//toplamaya 0 dan basla initiliaze degeri
+
+        console.log(`Son tplam=${sontoplam}`);
+
+
+        const soncarpim = koordinatlar.reduce( (carpim, koord) => {
+            console.log(`çarpım=${carpim} koord=${koord}`);
+            return carpim * koord;
+            
+        });
+        console.log(`Son çarpım=${soncarpim}`);
+
+// bir firma 15 tl den az olan maaslara %10 zam yapmak istiyor ve zam yapilan kisilere toplam kac tl odenecegini bilmek istiyor.programi yaziniz...
+        const maaslar = [12,15,8,20,25,14,12,10,7,10];
+        const toplmaMaas = maaslar.filter(m=>m<=15)
+        .map(m=>m*1.2)
+        .reduce( (toplam, m) => toplam+m,0);//toplammaas a en son veri doner
+
+        console.log(toplmaMaas);
+const koor=[2,3,4];
+        const ortalama=koor.reduce( (x,y)=>{
+        return x+y;   
+        });
+        console.log(ortalama/koor.length);
+
+
+
+    </script>
+</body>
+</html>

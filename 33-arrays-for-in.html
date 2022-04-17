@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //iterator dizinin icine girip elemanlara ulasir
+        const adlar = ["Ahmet", "Can", "Mustafa","Ayşe","Elif"];
+        const soyAdlar = ["Öztürk", "Yılmaz", "Arı", "Çalı", "Yazı"];
+        const birlesik = [];
+
+        for(let x in adlar){// ` ` string literal sadece index numarasini verir adlar=sadece index ini dondurur 0 1 2 3...
+            birlesik.push(`${adlar[x]} ${soyAdlar[x]}`);
+        }
+        console.log(birlesik);
+
+
+    </script>
+</body>
+</html>

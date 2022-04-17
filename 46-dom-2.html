@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="liste">
+        ali gel
+        <li>Item1
+            <span>test</span>
+        </li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li id="s1">Item4</li>
+        <li>Item5</li>
+    </ul>
+
+
+
+    <script>
+        const liste = document.querySelector("#liste");
+        
+        const listeninCocuklari = liste.children;
+        //= const liste = document.querySelector("#liste li");
+
+        console.log(listeninCocuklari);
+
+        const listeninIlkCocugu = liste.firstElementChild;
+        //eger liste.firstChild deseydik ul nin icine yazilmis yazilari getirecekti ali gel yazisi mesela
+        console.log(listeninIlkCocugu);
+
+        const listeninSOnCocugu = liste.lastElementChild;
+        console.log(listeninSOnCocugu);
+
+        const listeninParenti = liste.parentElement;
+        console.log(listeninParenti);//bu da ust tarafi getirmek icin bir ustu body old icin body icindekileriyle beraber body getirir
+
+        const s1 = document.querySelector("#s1");
+        const s1inKardesleri = s1.nextElementSibling;
+        console.log(s1inKardesleri);//secilenin bir sonraki elementini veriyor
+
+
+    </script>
+</body>
+</html>

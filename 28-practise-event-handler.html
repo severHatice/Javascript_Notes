@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="txtNot1" placeholder="1.Notu giriniz">
+    <input type="text" name="" id="txtNot2" placeholder="2.Notu giriniz">
+    <button id="btnHesapla">Hesapla</button>
+    <h3>Yıl sonu notu: <span id="sonuc"></span></h3>
+
+    <script>
+        document.querySelector("#btnHesapla").addEventListener("click", ()=>{
+            let not1 = document.querySelector("#txtNot1");//number()buda bir kontrol yontemi
+            let not2 = document.querySelector("#txtNot2");
+
+            if(!not1.value || isNaN(not1.value) || not1.value<0 || not1.value>100){//buraya giren true olsun ki asagidaki uyariyi versin
+                alert("1.Not için geçerli bir değer giriniz");
+                not1.focus();//eger deger girmemissen uyari verip imleci direk o kutuya koyuyor
+               not1.value = "";
+                //return;//asagiya dogru devam etmesin diye return
+            }
+
+            if(!not2.value || isNaN(not2.value) || not2.value<0 || not2.value>100){
+                alert("2.Not için geçerli bir değer giriniz");
+                not2.focus();//burada focusun calismasi icin kullanicinin isini kolaylastirmak icin
+                //document.querySelector("#txtNot1").focus();
+                 //document.querySelector("#txtNot1").value="";
+                not2.value = "";
+                return;
+            }
+
+            not1 = Number(not1.value);//obje olarak aldigi degeri sayiya casting yaptik artik textbox saklamiyor degerini sakliyor simdi
+            not2 = Number(not2.value);//****************************************************************yukarida document.qs de degerini almadigimiz icin burada sart oldu yoksa textbox asagida calismiyordu
+
+            const ortalama = (not1 + not2) /2;
+            let harfNot = "";
+
+            switch(true){
+                case ortalama >= 90:
+                    harfNot = "A";
+                    break;
+                case ortalama >=80:
+                    harfNot = "B";
+                    break;
+                case ortalama >=70:
+                    harfNot = "C";
+                    break;
+                case ortalama >=50:
+                    harfNot = "D";
+                    break;
+                default:
+                    harfNot = "F";
+            }
+            
+            document.querySelector("#sonuc").innerHTML = harfNot;
+
+        });
+
+    </script>
+
+</body>
+</html>

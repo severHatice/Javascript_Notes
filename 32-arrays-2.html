@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="baslik">
+    </select>
+
+
+    <script>
+        //mutator iceriginde degisiklik yapabilir
+        const meyveler = ["Elma", "Armut", "Muz", "Kivi"];
+        console.log(meyveler);
+       meyveler.pop();//sondki ogeyi siler
+        console.log(meyveler);
+        meyveler.push("Ananas");//sona oge ekler
+        console.log(meyveler);
+        meyveler.shift();
+        console.log(meyveler);//bastaki ogeyi siler
+        meyveler.unshift("Çilek");
+        console.log(meyveler);//basa oge ekler
+        meyveler.reverse();
+        console.log(meyveler);//tersten siralar
+        meyveler.sort();
+        console.log(meyveler);//alfabatik siralar
+        meyveler.sort( (a,b) =>  a.localeCompare(b, 'tr')).reverse();//dillere gore siraladi turkceye gore
+        console.log(meyveler);
+       
+        meyveler.splice(2,0,"Ayva","Elma","Muz");
+        console.log(meyveler);
+        meyveler.splice(2,2);//2. elementten sonra 2 eleman siler
+        console.log(meyveler);
+
+
+        document.querySelector("#baslik").innerHTML = "<option>" + meyveler.join("</option><option>") + "</option>";//normalde bu yontemle yapmiyoruz
+        //parantez icindeki option onemli ters yapilmis
+
+
+
+
+        const sayilar = [5, 14, 2, 167];//**********
+        
+        sayilar.sort( (a,b) => a-b );//arrow func//kucukten buyuge
+        sayilar.sort( function (a,b){//buyukten kucuge
+            return b-a;//a-b olsaydi kucukten buyuge
+        })
+
+        console.log(sayilar);
+
+       //concat access metod
+        const yeniDizi = meyveler.concat(sayilar, "M", "Ş", ["Ali", "Veli", "Ayşe"]);
+        console.log(yeniDizi);
+
+
+    </script>
+</body>
+</html>
